@@ -1,0 +1,3 @@
+34.- Recargando el servidor automaticamente:
+    Se utiliza la dependencia "nodemon" la cual, al grabar el codigo del servidor, esta se actualiza y recarga el servidor automaticamente.
+    Para esto se necesita escribir un script en package.json (atajo) -> "dev": "nodemon index.js"   
