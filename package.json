@@ -1,0 +1,19 @@
+{
+  "name": "web-personal-api",
+  "version": "0.0.1",
+  "description": "El api de la web personal upd",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vicentepz94/MERN---Web-Personal---server.git"
+  },
+  "author": "Vicente Paredes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vicentepz94/MERN---Web-Personal---server/issues"
+  },
+  "homepage": "https://github.com/vicentepz94/MERN---Web-Personal---server#readme"
+}
