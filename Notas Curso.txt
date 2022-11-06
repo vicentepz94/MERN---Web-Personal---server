@@ -6,3 +6,4 @@
 38.- En la creacion del Endpoint se genera un controller de autorizacion auth.js y se refiere en la ruta (carpeta) auth.js, el tipo de 
     peticion dependera del tipo de esta (PORT, PUT, UPDATE, DELAY, GET, POST, entre otros), en este caso como es de cliente a servidor
     es de tipo POST. una vez creado el sistema de rutas se pasa a express en app.js para enviarlo
+    SE COLOCA LA RUTA EN ROUTER/AUTH.JS PARA PROBAR LOS Endpoint
