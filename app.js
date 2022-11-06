@@ -11,6 +11,9 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Configure static folder (se pueden agregar las carpetas que se necesiten usando el mismo codigo)
+app.use(express.static("uploads"));
+
 // Configure Header HTTP - CORS
 // ...
 
