@@ -1,9 +1,13 @@
 34.- Recargando el servidor automaticamente:
     Se utiliza la dependencia "nodemon" la cual, al grabar el codigo del servidor, esta se actualiza y recarga el servidor automaticamente.
     Para esto se necesita escribir un script en package.json (atajo) -> "dev": "nodemon index.js"   
+
 35.- Body Parser: Lo que nos llega desde el (BODY) cliente al servidor (PARSEANDOLO). Ahora Expressjs tiene su propia dependencia 
     (instalar por npm body-parser)
+
 38.- En la creacion del Endpoint se genera un controller de autorizacion auth.js y se refiere en la ruta (carpeta) auth.js, el tipo de 
     peticion dependera del tipo de esta (PORT, PUT, UPDATE, DELAY, GET, POST, entre otros), en este caso como es de cliente a servidor
     es de tipo POST. una vez creado el sistema de rutas se pasa a express en app.js para enviarlo
     SE COLOCA LA RUTA EN ROUTER/AUTH.JS PARA PROBAR LOS Endpoint
+
+41.- Todo lo relacionado con json webtoken ira dentro de utils/jwt.js (creacion de access token, refresh token y decodificacion del token)
