@@ -1,3 +1,5 @@
 34.- Recargando el servidor automaticamente:
     Se utiliza la dependencia "nodemon" la cual, al grabar el codigo del servidor, esta se actualiza y recarga el servidor automaticamente.
     Para esto se necesita escribir un script en package.json (atajo) -> "dev": "nodemon index.js"   
+35.- Body Parser: Lo que nos llega desde el (BODY) cliente al servidor (PARSEANDOLO). Ahora Expressjs tiene su propia dependencia 
+    (instalar por npm body-parser)
