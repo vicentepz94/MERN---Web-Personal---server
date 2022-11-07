@@ -43,18 +43,20 @@ function login(req, res) {
     if (error) {
       res.status(400).send({ msg: "Error del servidor" });
     } else {
+      // Una vez encontrado el usuario se necesita verificar la contraseña (encriptada con la no encriptada)
       bcrypt.compare(password, userStore.password, (bcryptError, check) => {
         if (bcryptError) {
           res.status(500).send({ msg: "Error del servidor" });
         } else if (!check) {
           res.status(400).send({ msg: "Contraseña incorrecta" });
         } else if (!userStore.active) {
-          res.status(401).send({ msg: "Usuario no autorizado" });
+          res.status(401).send({ msg: "Usuario no autorizadoo no activo" });
+        } else {
+          res.status(200).send({
+            access: jwt.createAccessToken(userStore),
+            refresh: jwt.createRefreshToken(userStore),
+          });
         }
-        res.status(200).send({
-          access: jwt.createAccessToken(userStore),
-          refresh: jwt.createRefreshToken(userStore),
-        });
       });
     }
   });
@@ -63,7 +65,11 @@ function login(req, res) {
 function refreshAccessToken(req, res) {
   const { token } = req.body;
 
+  if (!token) res.status(400).send({ msg: "Token requerido" });
+
   const { user_id } = jwt.decoded(token);
+
+  if (!user_id) res.status(400).send({ msg: "El Payload no contiene user_id" });
 
   User.findOne({ _id: user_id }, (error, userStorage) => {
     if (error) {
@@ -79,4 +85,5 @@ function refreshAccessToken(req, res) {
 module.exports = {
   register,
   login,
+  refreshAccessToken,
 };
