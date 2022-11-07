@@ -11,3 +11,4 @@
     SE COLOCA LA RUTA EN ROUTER/AUTH.JS PARA PROBAR LOS Endpoint
 
 41.- Todo lo relacionado con json webtoken ira dentro de utils/jwt.js (creacion de access token, refresh token y decodificacion del token)
+45.- Middleware de autenticación. para que solo el usuario pueda crud.
