@@ -1,17 +1,21 @@
 34.- Recargando el servidor automaticamente:
     Se utiliza la dependencia "nodemon" la cual, al grabar el codigo del servidor, esta se actualiza y recarga el servidor automaticamente.
-    Para esto se necesita escribir un script en package.json (atajo) -> "dev": "nodemon index.js"   
+    Para esto se necesita escribir un script en package.json (atajo) -> "dev": "nodemon index.js".
 
 35.- Body Parser: Lo que nos llega desde el (BODY) cliente al servidor (PARSEANDOLO). Ahora Expressjs tiene su propia dependencia 
-    (instalar por npm body-parser)
+    (instalar por npm body-parser).
 
 38.- En la creacion del Endpoint se genera un controller de autorizacion auth.js y se refiere en la ruta (carpeta) auth.js, el tipo de 
     peticion dependera del tipo de esta (PORT, PUT, UPDATE, DELAY, GET, POST, entre otros), en este caso como es de cliente a servidor
     es de tipo POST. una vez creado el sistema de rutas se pasa a express en app.js para enviarlo
-    SE COLOCA LA RUTA EN ROUTER/AUTH.JS PARA PROBAR LOS Endpoint
+    SE COLOCA LA RUTA EN ROUTER/AUTH.JS PARA PROBAR LOS Endpoint.
 
 41.- Todo lo relacionado con json webtoken ira dentro de utils/jwt.js (creacion de access token, refresh token y decodificacion del token)
 45.- Middleware de autenticación. para que solo el usuario pueda crud, este se crea en carpeta middleware y se incorpora en el endpoint 
     de usuario.
 46.- En el middleware de authenticated ya se creo la funcion para decodificar los datos del usuario en el payload, este se reutiliza en 
     en controller de user llamado req.user(authenticated.js linea 27*).
+48.- Creacion de usuario: cuando se crea un usuario, ya que este posee una foto de avatar, el tipo de archivo enviado no es un JSON (como 
+    el resto de los endpoints, si no que es un Multipart Form[en Insomnia]), aqui se envian todos los datos del modelo de usuario en el 
+    Multipart Form.
+    Para enviar un Multipart se debe activar a traves de un Middleware (connect multiparty en npm)

@@ -1,5 +1,5 @@
 const jwt = require("../utils/jwt");
-
+// AUTENTICACIÓN DE USUARIOS
 //  Ejecutar next avisa al sistema que puede continuar con la funcion siguiente
 function asureAuth(req, res, next) {
   if (!req.headers.authorization) {
