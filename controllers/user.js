@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
+const image = require("../utils/image");
 
 async function getMe(req, res) {
   const { user_id } = req.user;
@@ -37,8 +38,8 @@ async function createUser(req, res) {
   user.password = hashPassword;
 
   if (req.files.avatar) {
-    //TODO:
-    console.log("Procesar avatar");
+    const imagePath = image.getFilePath(req.files.avatar);
+    user.avatar = imagePath;
   }
 
   user.save((error, userStored) => {
