@@ -13,5 +13,12 @@ api.get("/user/me", [md_auth.asureAuth], UserController.getMe);
 api.get("/users", [md_auth.asureAuth], UserController.getUsers);
 // como se envian datos por el body, la peticion es de tipo post
 api.post("/user", [md_auth.asureAuth, md_upload], UserController.createUser);
+// se realiza una actualizacion parcial con ".patch", se ejecuta en /user/:id
+api.patch(
+  "/user/:id",
+  [md_auth.asureAuth, md_upload],
+  UserController.updateUser
+);
+api.delete("/user/:id", [md_auth.asureAuth], UserController.deleteUser);
 
 module.exports = api;

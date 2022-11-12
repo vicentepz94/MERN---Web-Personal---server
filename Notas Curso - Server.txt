@@ -20,4 +20,5 @@
     el resto de los endpoints, si no que es un Multipart Form[en Insomnia]), aqui se envian todos los datos del modelo de usuario en el 
     Multipart Form.
     Para enviar un Multipart se debe activar a traves de un Middleware (connect multiparty en npm).
-49.- Para crear el split de la ruta de la imagen de avatar, se necesita cololar ".split("\\")" en vez de ".split("/")"
+49.- Para crear el split de la ruta de la imagen de avatar, se necesita cololar ".split("\\")" en vez de ".split("/")".
+50.- La actualizacion del usuario se divide en los datos normales y luego contraseña (proceso para encriptarla en la actualizacion) y avatar
