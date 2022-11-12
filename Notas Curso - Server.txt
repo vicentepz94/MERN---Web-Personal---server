@@ -22,3 +22,4 @@
     Para enviar un Multipart se debe activar a traves de un Middleware (connect multiparty en npm).
 49.- Para crear el split de la ruta de la imagen de avatar, se necesita cololar ".split("\\")" en vez de ".split("/")".
 50.- La actualizacion del usuario se divide en los datos normales y luego contraseña (proceso para encriptarla en la actualizacion) y avatar
+53.- La estructura del api de menu se compone de Controllers/menu.js, router/menu.js y app.js
