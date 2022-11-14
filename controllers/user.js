@@ -20,12 +20,16 @@ async function getUsers(req, res) {
 
   let response = null;
 
-  if (active == undefined) {
+  if (active === undefined) {
     response = await User.find();
   } else {
     response = await User.find({ active });
   }
-  res.status(200).send(response);
+  if (!response) {
+    send.status(400).send({ msg: "No se han encontrado usuarios" });
+  } else {
+    res.status(200).send(response);
+  }
 }
 
 async function createUser(req, res) {
