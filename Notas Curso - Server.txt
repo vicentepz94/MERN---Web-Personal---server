@@ -23,3 +23,4 @@
 49.- Para crear el split de la ruta de la imagen de avatar, se necesita cololar ".split("\\")" en vez de ".split("/")".
 50.- La actualizacion del usuario se divide en los datos normales y luego contraseña (proceso para encriptarla en la actualizacion) y avatar
 53.- La estructura del api de menu se compone de Controllers/menu.js, router/menu.js y app.js
+62.- El elemento de "curso", en la clase tiene la particularidad de usuar paginacion, con la dependecia mongoose-paginate
