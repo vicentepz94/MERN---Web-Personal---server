@@ -1,3 +1,4 @@
+const post = require("../models/post");
 const Post = require("../models/post");
 const image = require("../utils/image");
 
@@ -15,7 +16,7 @@ function createPost(req, res) {
     }
   });
 }
-function getPost(req, res) {
+function getPosts(req, res) {
   const { page = 1, limit = 10 } = req.query;
   const options = {
     page: parseInt(page),
@@ -60,9 +61,24 @@ function deletePost(req, res) {
   });
 }
 
+function getPost(req, res) {
+  const { path } = req.params;
+
+  Post.findOne({ path }, (error, postStored) => {
+    if (error) {
+      res.status(500).send({ msg: "Error del servidor" });
+    } else if (!postStored) {
+      res.status(400).send({ msg: "No se ha encontrado ningun post" });
+    } else {
+      res.status(200).send(postStored);
+    }
+  });
+}
+
 module.exports = {
   createPost,
-  getPost,
+  getPosts,
   updatePost,
   deletePost,
+  getPost,
 };
