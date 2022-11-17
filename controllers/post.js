@@ -1,6 +1,37 @@
 const Post = require("../models/post");
+const image = require("../utils/image");
 
-// Functions..
-// ...
+function createPost(req, res) {
+  const post = new Post(req.body);
+  post.created_at = new Date();
+  const imagePath = image.getFilePath(req.files.miniature);
+  post.miniature = imagePath;
 
-module.exports = {};
+  post.save((error, postStored) => {
+    if (error) {
+      res.status(400).send({ msg: "Error al crear el post" });
+    } else {
+      res.status(200).send(postStored);
+    }
+  });
+}
+function getPost(req, res) {
+  const { page = 1, limit = 10 } = req.query;
+  const options = {
+    page: parseInt(page),
+    limit: parseInt(limit),
+    sort: { created_at: "desc" },
+  };
+  Post.paginate({}, options, (error, postStored) => {
+    if (error) {
+      res.status(400).send({ msg: "Error al obtener los posts" });
+    } else {
+      res.status(200).send(postStored);
+    }
+  });
+}
+
+module.exports = {
+  createPost,
+  getPost,
+};

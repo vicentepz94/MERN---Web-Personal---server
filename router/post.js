@@ -6,7 +6,7 @@ const md_auth = require("../middlewares/authenticated");
 const md_upload = multiparty({ uploadDir: "./uploads/blog" });
 const api = express.Router();
 
-// Routes ...
-// ...
+api.post("/post", [md_auth.asureAuth, md_upload], PostController.createPost);
+api.get("/post", PostController.getPost);
 
 module.exports = api;
