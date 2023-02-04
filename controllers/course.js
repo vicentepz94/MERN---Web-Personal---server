@@ -10,7 +10,7 @@ function createCourse(req, res) {
     if (error) {
       res.status(400).send({ msg: "Error al crear el curso" });
     } else {
-      res.status(200).send(courseStored);
+      res.status(201).send(courseStored);
     }
   });
 }
