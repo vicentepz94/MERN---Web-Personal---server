@@ -12,7 +12,7 @@ function createPost(req, res) {
     if (error) {
       res.status(400).send({ msg: "Error al crear el post" });
     } else {
-      res.status(200).send(postStored);
+      res.status(201).send(postStored);
     }
   });
 }
