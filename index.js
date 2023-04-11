@@ -14,7 +14,7 @@ const {
 } = require("./constants");
 
 // Para levantar el servidor http
-const PORT = process.env.POST || 3977;
+const PORT = process.env.PORT || 3977;
 
 // Para conectarse a mongoose
 mongoose.connect(
